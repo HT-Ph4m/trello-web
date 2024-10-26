@@ -71,10 +71,10 @@ function Profiles() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem>
-          <Avatar sx={{ width: '28px', height: '28px', mr: 2 }} /> Profile
+          <Avatar sx={{ width: '34px', height: '34px', mr: 2 }} /> Profile
         </MenuItem>
         <MenuItem>
-          <Avatar sx={{ width: '28px', height: '28px', mr: 2 }} /> My account
+          <Avatar sx={{ width: '34px', height: '34px', mr: 2 }} /> My account
         </MenuItem>
         <Divider />
         <MenuItem>
