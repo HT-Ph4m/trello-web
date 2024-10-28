@@ -12,16 +12,14 @@ import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
 function BoardBar() {
   const MENU_STYLE = {
-    color: 'primary.main',
-    backgroundColor: 'white',
+    color: 'white',
+    backgroundColor: 'transparent',
     border: 'none',
     padding: '5px',
     fontWeight: '500',
     borderRadius: 0,
-    '& .MuiSvgIcon-root': {
-      color: 'primary.main'
-    },
-    '&:hove': {
+    '.MuiSvgIcon-root': { color: 'white' },
+    '&:hover': {
       backgroundColor: 'primary.50'
     }
   }
@@ -37,7 +35,10 @@ function BoardBar() {
         paddingX: 2,
         borderTop: '1px solid #00bfa5',
         gap: 2,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2',
+        borderBottom: '1px solid #aaa'
       }}
     >
       <Box
@@ -80,7 +81,17 @@ function BoardBar() {
           gap: 2
         }}
       >
-        <Button variant="outlined" startIcon={<PersonAddIcon size="small" />}>
+        <Button
+          variant="outlined"
+          startIcon={<PersonAddIcon size="small" />}
+          sx={{
+            color: 'white',
+            borderColor: 'white',
+            '&:hover': {
+              borderColor: 'white'
+            }
+          }}
+        >
           Invite
         </Button>
         <AvatarGroup
@@ -89,30 +100,54 @@ function BoardBar() {
             '& .MuiAvatar-root': {
               width: '34px',
               height: '34px',
-              fontSize: '16px'
+              fontSize: '16px',
+              border: 'none',
+              color: 'white',
+              cursor: 'pointer'
             }
           }}
         >
           <Tooltip title="avatar">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg?t=st=1730088083~exp=1730091683~hmac=223793c133374b29e518b1f02c57863d7ab0fe6d4f95b3778456feca5b736093&w=1800"
+            />
           </Tooltip>
           <Tooltip title="avatar">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg?t=st=1730088083~exp=1730091683~hmac=223793c133374b29e518b1f02c57863d7ab0fe6d4f95b3778456feca5b736093&w=1800"
+            />
           </Tooltip>
           <Tooltip title="avatar">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg?t=st=1730088083~exp=1730091683~hmac=223793c133374b29e518b1f02c57863d7ab0fe6d4f95b3778456feca5b736093&w=1800"
+            />
           </Tooltip>
           <Tooltip title="avatar">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg?t=st=1730088083~exp=1730091683~hmac=223793c133374b29e518b1f02c57863d7ab0fe6d4f95b3778456feca5b736093&w=1800"
+            />
           </Tooltip>
           <Tooltip title="avatar">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg?t=st=1730088083~exp=1730091683~hmac=223793c133374b29e518b1f02c57863d7ab0fe6d4f95b3778456feca5b736093&w=1800"
+            />
           </Tooltip>
           <Tooltip title="avatar">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg?t=st=1730088083~exp=1730091683~hmac=223793c133374b29e518b1f02c57863d7ab0fe6d4f95b3778456feca5b736093&w=1800"
+            />
           </Tooltip>
           <Tooltip title="avatar">
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://img.freepik.com/free-photo/isolated-happy-smiling-dog-white-background-portrait-4_1562-693.jpg?t=st=1730088083~exp=1730091683~hmac=223793c133374b29e518b1f02c57863d7ab0fe6d4f95b3778456feca5b736093&w=1800"
+            />
           </Tooltip>
         </AvatarGroup>
       </Box>
