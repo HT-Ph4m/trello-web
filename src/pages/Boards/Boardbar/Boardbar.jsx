@@ -10,7 +10,9 @@ import Button from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
-function BoardBar() {
+import { capitalizeFirstLetter } from '~/utils/formatters'
+
+function BoardBar({ board }) {
   const MENU_STYLE = {
     color: 'white',
     backgroundColor: 'transparent',
@@ -49,13 +51,13 @@ function BoardBar() {
         <Chip
           sx={MENU_STYLE}
           icon={<DashboardIcon />}
-          label="With Icon"
+          label={board?.title}
           clickable
         />
         <Chip
           sx={MENU_STYLE}
           icon={<VpnLockIcon />}
-          label="With Icon"
+          label={capitalizeFirstLetter(board?.type)}
           clickable
         />
         <Chip
