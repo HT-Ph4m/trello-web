@@ -33,7 +33,6 @@ function BoardBar() {
         alignItems: 'center',
         overflowX: 'auto',
         paddingX: 2,
-        borderTop: '1px solid #00bfa5',
         gap: 2,
         justifyContent: 'space-between',
         backgroundColor: (theme) =>

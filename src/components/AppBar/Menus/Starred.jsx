@@ -7,6 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import Divider from '@mui/material/Divider'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Check from '@mui/icons-material/Check'
+import Box from '@mui/material/Box'
 
 function Starred() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -18,7 +19,7 @@ function Starred() {
     setAnchorEl(null)
   }
   return (
-    <div>
+    <Box>
       <Button
         sx={{ color: 'white' }}
         id="basic-button-starred"
@@ -66,7 +67,7 @@ function Starred() {
           <ListItemText>Custom spacing...</ListItemText>
         </MenuItem>
       </Menu>
-    </div>
+    </Box>
   )
 }
 
