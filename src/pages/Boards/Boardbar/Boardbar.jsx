@@ -36,8 +36,7 @@ function BoardBar() {
         gap: 2,
         justifyContent: 'space-between',
         backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2',
-        borderBottom: '1px solid #aaa'
+          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'
       }}
     >
       <Box
