@@ -33,9 +33,6 @@ function ListColumns({ columns }) {
             minWidth: '300px',
             maxWidth: '300px',
             height: 'fit-content',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
             cursor: 'pointer',
             backgroundColor: '#ffffff3d',
             borderRadius: '4px'
@@ -43,7 +40,12 @@ function ListColumns({ columns }) {
         >
           <Button
             startIcon={<NoteAddIcon />}
-            sx={{ color: 'white', width: '100%' }}
+            sx={{
+              color: 'white',
+              width: '100%',
+              justifyContent: 'start',
+              pl: 2
+            }}
           >
             Add new Column
           </Button>
