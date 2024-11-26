@@ -37,8 +37,7 @@ function BoardBar({ board }) {
         paddingX: 2,
         gap: 2,
         justifyContent: 'space-between',
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'
+        backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2')
       }}
     >
       <Box
@@ -48,31 +47,13 @@ function BoardBar({ board }) {
           gap: 2
         }}
       >
-        <Chip
-          sx={MENU_STYLE}
-          icon={<DashboardIcon />}
-          label={board?.title}
-          clickable
-        />
-        <Chip
-          sx={MENU_STYLE}
-          icon={<VpnLockIcon />}
-          label={capitalizeFirstLetter(board?.type)}
-          clickable
-        />
-        <Chip
-          sx={MENU_STYLE}
-          icon={<AddToDriveIcon />}
-          label="With Icon"
-          clickable
-        />
+        <Tooltip title={board?.description}>
+          <Chip sx={MENU_STYLE} icon={<DashboardIcon />} label={board?.title} clickable />
+        </Tooltip>
+        {/* <Chip sx={MENU_STYLE} icon={<VpnLockIcon />} label={capitalizeFirstLetter(board?.type)} clickable />
+        <Chip sx={MENU_STYLE} icon={<AddToDriveIcon />} label="With Icon" clickable />
         <Chip sx={MENU_STYLE} icon={<BoltIcon />} label="With Icon" clickable />
-        <Chip
-          sx={MENU_STYLE}
-          icon={<FilterListIcon />}
-          label="With Icon"
-          clickable
-        />
+        <Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="With Icon" clickable /> */}
       </Box>
       <Box
         sx={{
