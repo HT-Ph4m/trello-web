@@ -91,7 +91,7 @@ function Column({ column }) {
             justifyContent: 'space-between'
           }}
         >
-          <Typography sx={{ fontWeight: 'bold', fontSize: '1rem' }}>Column Title</Typography>
+          <Typography sx={{ fontWeight: 'bold', fontSize: '1rem' }}>{column.title}</Typography>
           <Box>
             <Tooltip title="more option">
               <ExpandMoreIcon
