@@ -3,7 +3,14 @@ import AppBar from '~/components/AppBar/Appbar'
 import BoardBar from './Boardbar/Boardbar'
 import BoardContent from './BoardContent/BoardContent'
 import { useEffect, useState } from 'react'
-import { fetchBoardDetailsAPI, createNewColumnAPI, createNewCardAPI, updateBoardDetailsAPI } from '~/apis'
+import {
+  fetchBoardDetailsAPI,
+  createNewColumnAPI,
+  createNewCardAPI,
+  updateBoardDetailsAPI,
+  updateColumnDetailsAPI,
+  moveCardToDifferentColumnAPI
+} from '~/apis'
 import { generatePlaceholderCard } from '~/utils/formatters'
 import { isEmpty } from 'lodash'
 function Board() {
@@ -50,20 +57,57 @@ function Board() {
     setBoard(newBoard)
   }
 
-  const moveColumns = async (dndOrderedColumns) => {
+  const moveColumns = (dndOrderedColumns) => {
     const dndOrderedColumnIds = dndOrderedColumns.map((c) => c._id)
     const newBoard = { ...board }
     newBoard.columns = dndOrderedColumns
     newBoard.columnOrderIds = dndOrderedColumnIds
     setBoard(newBoard)
 
-    await updateBoardDetailsAPI(newBoard._id, { columnOrderIds: dndOrderedColumnIds })
+    updateBoardDetailsAPI(newBoard._id, { columnOrderIds: dndOrderedColumnIds })
+  }
+
+  const moveCardInTheSameColumn = (dndOrderedCards, dndOrderCardIds, columnId) => {
+    // update ui state
+    const newBoard = { ...board }
+    const columnUpdate = newBoard.columns.find((column) => column._id === columnId)
+    if (columnUpdate) {
+      columnUpdate.cards = dndOrderedCards
+      columnUpdate.cardOrderIds = dndOrderCardIds
+    }
+    setBoard(newBoard)
+    //call api
+    updateColumnDetailsAPI(columnId, { cardOrderIds: dndOrderCardIds })
+  }
+
+  const moveCardToDifferentColumn = (currentCardId, prevColumnId, nextColumnId, dndOrderedColumns) => {
+    const dndOrderedColumnsIds = dndOrderedColumns.map((c) => c._id)
+    const newBoard = { ...board }
+    newBoard.columns = dndOrderedColumns
+    newBoard.cardOrderIds = dndOrderedColumnsIds
+    setBoard(newBoard)
+
+    //call api
+    moveCardToDifferentColumnAPI({
+      currentCardId,
+      prevColumnId,
+      prevCardOrderIds: dndOrderedColumns.find((c) => c._id === prevColumnId)?.cardOrderIds,
+      nextColumnId,
+      nextCardOrderIds: dndOrderedColumns.find((c) => c._id === nextColumnId)?.cardOrderIds
+    })
   }
   return (
     <Container disableGutters maxWidth={false}>
       <AppBar />
       <BoardBar board={board} />
-      <BoardContent board={board} createNewColumn={createNewColumn} createNewCard={createNewCard} moveColumns={moveColumns} />
+      <BoardContent
+        board={board}
+        createNewColumn={createNewColumn}
+        createNewCard={createNewCard}
+        moveColumns={moveColumns}
+        moveCardInTheSameColumn={moveCardInTheSameColumn}
+        moveCardToDifferentColumn={moveCardToDifferentColumn}
+      />
     </Container>
   )
 }
